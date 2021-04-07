@@ -1,8 +1,24 @@
 
-# Every time you open your IDE or turn on your computer: 
-> source venv/bin/activate
+# Every time you start:
+- Activate your virtual environment for this project: 
+> source venv/bin/activate 
+- Point Flask to your application: 
 > export FLASK_APP=main.py
+- Enable hot reloading, debug mode, and other useful features for local development:  
+> export FLASK_ENV=development
+- run your flask application: 
 > flask run 
+
+On Windows, these commands are slightly different: 
+- Activate your virtual environment for this project: 
+> env\Scripts\activate.bat
+- Point Flask to your application: 
+> set FLASK_APP=main.py
+- Enable hot reloading, debug mode, and other useful features for local development:  
+> set FLASK_ENV=development
+- run your flask application: 
+> flask run 
+
 
 
 
