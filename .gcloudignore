@@ -1,0 +1,16 @@
+# these files will not be uploaded to google cloud 
+
+# configs and git 
+.gcloudignore
+.git
+.gitignore
+
+
+# python project (same as in .gitignore)
+venv/*
+.vscode/*
+__pycache__/
+.pytest_cache/
+junit/
+*.pyc
+.DS_Store
