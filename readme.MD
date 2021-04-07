@@ -20,8 +20,6 @@ On Windows, these commands are slightly different:
 > flask run 
 
 
-
-
 # Before you start... 
 You should have on your computer:
 - Python 3.8.x 
@@ -44,7 +42,11 @@ Setup for local development:
     > export FLASK_APP=main.py
     > flask run 
 
-
+## while developing: 
+- Test your app: 
+> pytest --doctest-modules
+- Lint your app: 
+> flake8 --exclude venv 
 
 
 

@@ -13,3 +13,8 @@ footer {
     margin-top: 5rem;
     text-align: center;
 }
+
+.button{
+    color: antiquewhite;
+    background-color:firebrick;
+}
