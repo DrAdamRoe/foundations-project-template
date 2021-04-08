@@ -37,6 +37,7 @@ jobs:
       uses: google-github-actions/deploy-appengine@main
       with:
         credentials: ${{ secrets.GAE_SA_KEY }}
+      env:
         MY_VAR: "my value"
         DB_PASSWORD: ${{ secrets.PRODUCTION_DATABASE_PASSWORD }}
 
