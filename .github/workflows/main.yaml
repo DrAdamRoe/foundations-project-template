@@ -33,13 +33,13 @@ jobs:
     - name: Test with pytest
       run: |
         pytest --doctest-modules --junitxml=junit/test-results.xml
+    - name: Prepare Deployment 
+      run: | 
+        echo "  DB_PASSWORD: \"${{ secrets.PRODUCTION_DATABASE_PASSWORD }}\" " >> app.yaml
+        more app.yaml
     - name: Deploy to Google App Engine
       uses: google-github-actions/deploy-appengine@main
       with:
         credentials: ${{ secrets.GAE_SA_KEY }}
-      env:
-        MY_VAR_GITHUB: "my value"
-        DB_PASSWORD_GITHUB: ${{ secrets.PRODUCTION_DATABASE_PASSWORD }}
-
     - name: Cleanup Old Versions on Google App Engine 
       run: gcloud app versions delete --quiet `gcloud app versions list --format="value(id)[terminator=' ']" --filter="traffic_split=0"`
