@@ -6,7 +6,7 @@ env_variables:
   # this will be publicly available on GitHub and may be useful for a production URL, for instance. 
   MY_VAR: ${{ MY_VAR_GITHUB }} 
   # this will be passed to your application's environment by GitHub, if the variable is set there.
-  DB_PASSWORD: ${{ DB_PASSWORD_GITHUB }}
+  DB_PASSWORD: "hard_coded"
 
 handlers:
 - url: /static
