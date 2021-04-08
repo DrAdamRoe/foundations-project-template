@@ -1,23 +1,24 @@
 <html>
-  <head>
+
+<head>
     <title> {{ page_title }}</title>
-  	<meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-  </head>
-  <body>
+</head>
 
-  <header>
-    <div class="banner">
-      <h1> My Great Project  </h1> 
-    </div>
-  </header>
-  <main>
-    {% block content%}
-    {% endblock %}
-  </main>
-  <footer>
-    <h3> <em> By Your Name Here </em></h3>
-  </footer>
-  </body>
+<body>
+
+    <header>
+        <div class="banner">
+            <h1> My Great Project</h1>
+        </div>
+    </header>
+    <main>
+        {% block content%} {% endblock %}
+    </main>
+    <footer>
+        <h3> <em> By Your Name Here </em></h3>
+    </footer>
+</body>
