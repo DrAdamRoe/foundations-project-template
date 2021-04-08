@@ -11,7 +11,7 @@ from os import environ
 MY_PORT = "5000"
 
 # !!! Important !!!
-# Anything written here is effectively public knowledge.
+# Anything written in this file is effectively public knowledge.
 # Anything that should remain a secret, like a password for a database or an
 # API Key, should *not* be written here in plain text.
 # # Instead, these should be set as environment variables on the computer you
@@ -28,5 +28,6 @@ MY_PORT = "5000"
 #
 # You can then set a different password for your production database in GitHub,
 # by adding it as a repository secret, like with our google cloud credentials.
-
+# Those passwords can then be added dynamically to app.yaml by the GitHub
+# Action step called "Prepare Deployment" on line 36 of main.yaml.
 DATABASE_PASSWORD = environ.get('DB_PASSWORD')
