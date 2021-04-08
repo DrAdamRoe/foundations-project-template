@@ -12,7 +12,7 @@ Every time you restart your computer or reopen VSCode, you'll have to do a few t
     
     Windows: `env\Scripts\activate.bat`
 
-- Point Flask to your application:  
+- Point Flask to your application: 
 
     macOS/Linux:  `export FLASK_APP=main.py`
     
@@ -62,7 +62,7 @@ Now you should be ready to get the starter template running on your computer!
 - Open a terminal in VS Code, too. This should automatically be in the same directory as your repository, if not, you should change directory to be in there. 
 - In the terminal, create a new virtual environment for this project, using Python 3.8.x. The exact command will depend on your operating system and setup, but the idea is the same: call the Python executable at the command line (e.g. `python` or `python3.8` or `python3` or maybe `\Python38\python` on Windows). Normally, that will open the Python REPL interface, but we don't want that this time - we want it to create a virtual environment for us. To do that, pass the argument `-m venv`, which tells Python "run the venv module". Then, give it one more argument which is the path to a folder name where the virtual environment will live. For ease and consistency, this should be called `venv` and live in the repository root folder. This command could look like this, in the end, depending on your setup:
     
-    > python3.8 -m venv venv  
+    > python3.8 -m venv venv 
 
 - Activate your virtual environment (instructions can be found at the top of this readme)
 - Download the Python modules listed in requirements.txt using pip: 
