@@ -38,8 +38,8 @@ jobs:
       with:
         credentials: ${{ secrets.GAE_SA_KEY }}
       env:
-        MY_VAR: "my value"
-        DB_PASSWORD: ${{ secrets.PRODUCTION_DATABASE_PASSWORD }}
+        MY_VAR_GITHUB: "my value"
+        DB_PASSWORD_GITHUB: ${{ secrets.PRODUCTION_DATABASE_PASSWORD }}
 
     - name: Cleanup Old Versions on Google App Engine 
       run: gcloud app versions delete --quiet `gcloud app versions list --format="value(id)[terminator=' ']" --filter="traffic_split=0"`
