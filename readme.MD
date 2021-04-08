@@ -12,7 +12,7 @@ Every time you restart your computer or reopen VSCode, you'll have to do a few t
     
     Windows: `env\Scripts\activate.bat`
 
-- Point Flask to your application: 
+- Point Flask to your application:  
 
     macOS/Linux:  `export FLASK_APP=main.py`
     
