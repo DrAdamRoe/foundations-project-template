@@ -10,7 +10,7 @@ Every time you restart your computer or reopen VSCode, you'll have to do a few t
    
     macOS/Linux: `source venv/bin/activate`
     
-    Windows: `env\Scripts\activate.bat`
+    Windows: `venv\Scripts\activate.bat`
 
 - Point Flask to your application: 
 
@@ -65,11 +65,11 @@ Now you should be ready to get the starter template running on your computer!
     > python3.8 -m venv venv 
 
 - Activate your virtual environment (instructions can be found at the top of this readme)
-- Download the Python modules listed in requirements.txt using pip: 
+- Download the Python modules listed in requirements.txt using pip. In case you are running Windows, uwsgi isn't availiable, so uncomment it in the requirements.txt. (uWSGI==2.0.19.1 => #uWSGI==2.0.19.1) before you execute the following command: 
 
     > pip install -r requirements.txt
 
-- Run the local development server and make sure it all works. Instructions can be found at the top of this readme for using Flask's built in development server. Alternatively, you can use the command `uwsgi` to start your development server: 
+- Run the local development server and make sure it all works. Instructions can be found at the top of this readme for using Flask's built in development server. Alternatively (only on macOS or Linux), you can use the command `uwsgi` to start your development server: 
 
 > uwsgi --http-socket 127.0.0.1:5000 --wsgi-file great_project/website.py --callable app --processes 4 --threads 2 --stats 127.0.0.1:8181 -H venv/
 
@@ -80,8 +80,8 @@ You should be able to run the website locally and see it in your local browser!
 A lot can be said here, but there are a few things that will make your life much easier, and are highly recommended: 
 
 - Enable the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), which will immediately give you coding suggestions and show warnings. 
-- Set the linter to `flake8`, the same one we are using at the command line and when we build on Google Cloud. This will give you visual feedback (yellow and red squiggly lines)
-- Set the version of Python (or "interpreter") to be the virtual environment you have just created. This will help you to identify mismatches in your setup, especially when importing modules. 
+- Set the linter to `flake8`, the same one we are using at the command line and when we build on Google Cloud (CTRL+SHIFT+P / ⇧⌘P). This will give you visual feedback (yellow and red squiggly lines)
+- Set the version of Python (or "interpreter") to be the virtual environment you have just created. (CTRL+SHIFT+P / ⇧⌘P). This will help you to identify mismatches in your setup, especially when importing modules. 
 
 #### Setup Continuous Deployment
 You now have a website working locally, congratulations! And you can edit it, too. A website isn't really that useful unless it's on the web, though. A detailed explanation for how to do this can be found on our [Miro Board](https://miro.com/app/board/o9J_lTxsze4=/), in the [Foundation's main class repository](https://github.com/DrAdamRoe/foundations-sample-website), and in Google Classroom (where there is a walkthrough video). As a reminder, the main steps are: 
