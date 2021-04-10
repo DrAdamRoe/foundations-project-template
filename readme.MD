@@ -105,3 +105,14 @@ Now that you have verified that this setup works, it is time to make it your own
 Even before you add any "features", this makes the website and code look and feel more like it is yours already! 
 
 Once you have made some of these small changes, remember to add, commit, and push your changes - and with that, it should automatically be live on the internet! 
+
+### A Few Notes...
+Some pieces of this repository may require explaining. Here goes. 
+
+#### Environment Variables 
+This setup is designed to allow you t use environment variables if you need them. There are many ways to set this up with Python, and for this repository, I chose a method which allows for relatively simple integration with our GitHub Actions and Google App Engine workflow, but it does not scale very well. A more scalable system using the library `python-dotenv`. If you start working with many secrets, for example, many API keys, it makes sense to switch to that instead. The current system as implemented in this repository is described below.  
+
+Environment Variables can be found in the file `config.py`, as can more explanation. In order to use an environment variable - a value which you expect to be different in local development from our production system - it should be added to that file. In the cases of the Python variable `DATABASE_PASSWORD`, Python will look for an environment variable (on the computer running your website) called `DB_PASSWORD`, and assign its value to the Python variable. This is then usable by the Flask app. It is essential that anything which should remain a secret, like a database password, is never added to your GitHub repository. This makes your password public - giving anyone access to your database. Instead, we can use GitHub Secrets to securely add a password to the production environment. In other words: we can create a database password, add it to GitHub Secrets, and then GitHub can pass it on to App Engine. The last step requires one more trick, though. The App Engine environment is configured by the file `app.yaml`, which does not support reading in environment variables dynamically. Instead, the GitHub Action has a step in it called `Prepare Deployment`, which can add a GitHub Secret to the `app.yaml` file. In this case, the code expects GitHub to have a variable called `PRODUCTION_DATABASE_PASSWORD`. A line of code in `.github/workflows/main.yaml` then adds this password to the file `app.yaml` dynamically, setting to have the name `DB_PASSWORD`. This, in turn, is read in by the flask app. Note that the environment variables can all have the same name, but I have made them different to make it clearer what is what. 
+
+
+https://cloud.google.com/datastore/docs/quickstart
